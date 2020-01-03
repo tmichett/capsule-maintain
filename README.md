@@ -1,10 +1,10 @@
 # capsule-maintain
-Install/upgrade a Satellite6 Capsule server using ansible playbooks.
+Install/upgrade a Satellite6 Capsule server using ansible playbooks. Updated project from https://github.com/RedHatSatellite/capsule-maintain to include firewall ports role and fix items for Satellite Capsule installation.
 
 ## Getting Started
 
 #### What you need: ####
-- Satellite 6.4 or later version server. The Satellite server will be used as the Ansible control node.
+- Satellite 6.6 or later version server. The Satellite server will be used as the Ansible control node.
 - Target server(s) for Capsule installation/upgrade.
 - Password-less ssh from Satellite to all required capsules.
 - You can run install/upgrade/update on one or more capsule servers at one time.
