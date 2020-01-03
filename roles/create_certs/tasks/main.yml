@@ -18,8 +18,6 @@
       capsule-certs-generate
       --foreman-proxy-fqdn {{ inventory_hostname }}
       --certs-tar /certs/{{ inventory_hostname }}-certs.tar
-      --foreman-proxy-cname "{{ capsule_cname if capsule_cname != 'none' else '' }}"
-      --cname "{{ capsule_cname if capsule_cname != 'none' else '' }}"
       >/certs/{{ inventory_hostname }}-out.raw
   delegate_to: localhost
   when: capsule_install
@@ -32,6 +30,14 @@
     group: root
     mode: 0744
     backup: yes
+
+- name: Copy the required certs to the capsule in /root directory
+  copy:
+    src: /certs/{{ inventory_hostname }}-certs.tar
+    dest: /root/
+    owner: root
+    group: root
+    mode: 0744
 
 - name: Copy the installer command to the capsule for capsule install
   copy:

@@ -8,6 +8,7 @@
   remote_user: root
   roles:
   - create_certs
+  - setup_firewall
   - bootstrap
   - repo_enable
   - capsule_install
